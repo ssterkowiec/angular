@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MoviesServiceService} from './movies-service.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserData} from './model/UserData';
 
 @Component({
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       age: new FormControl(),
       country: new FormControl()
     });
-    this.getFromServer();
+    this.sendToSerwer();
 
   }
 
@@ -43,5 +43,19 @@ export class AppComponent implements OnInit {
       console.log(value);
       // wyciaganie danych ze strony
     });
+  }
+
+  sendToSerwer() {
+    const httpHeader = {
+      headers: new HttpHeaders({'Content-type': 'application/json ; charset=UTF-8'})
+    };
+    const body: UserData = {title: 'foo', body: 'bar', userId: 1} as UserData;
+    this.http.post('http://jsonplaceholder.typicode.com/posts/', body, httpHeader )
+      .subscribe(response => {
+          this.object = response as UserData;
+          console.log(response);
+        }
+      );
+
   }
 }
