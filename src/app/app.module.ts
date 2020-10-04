@@ -11,12 +11,14 @@ import {LoginComponent} from './login/login.component';
 import {NewsComponent} from './news/news.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {RouterModule, Routes} from '@angular/router';
+import {APIResolver} from './resolver/APIResolver';
 
 const appRotes: Routes = [
 
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    resolve: {message: APIResolver}
   },
 
   {
@@ -56,7 +58,7 @@ const appRotes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRotes) /*wywolujemy metode i przekazujemy tablice*/
   ],
-  providers: [],
+  providers: [APIResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {
