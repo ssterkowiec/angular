@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       age: new FormControl(),
       country: new FormControl()
     });
-    this.sendToSerwer();
+    this.updateOnServer();
 
   }
 
@@ -45,12 +45,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sendToSerwer() {
+  updateOnServer() {
     const httpHeader = {
       headers: new HttpHeaders({'Content-type': 'application/json ; charset=UTF-8'})
     };
-    const body: UserData = {title: 'foo', body: 'bar', userId: 1} as UserData;
-    this.http.post('http://jsonplaceholder.typicode.com/posts/', body, httpHeader )
+    const body: UserData = {title: 'foo', body: 'bar', userId: 1, id: 1} as UserData;
+    this.http.put('http://jsonplaceholder.typicode.com/posts/1', body, httpHeader )
       .subscribe(response => {
           this.object = response as UserData;
           console.log(response);
