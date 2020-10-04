@@ -1,26 +1,25 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MoviesServiceService} from './movies-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
-export class AppComponent {
-  // topMovies = [
-  //   {title: 'skazani na shawshank', director: 'Frank'},
-  //   {title: 'ojciec chrzestny', director: 'Frank'},
-  //   {title: 'aaaaaa', director: 'Frank'},
-  //   {title: 'bbbbb', director: 'Frank'},
-  //   {title: 'cccccc', director: 'Frank'}
-  // ];
+export class AppComponent implements OnInit {
 
-  tab = 0;
+  @ViewChild('tdForm', {static: false})
+  tdForm: any;
+  bottomMovies: any;
 
-  setTab(num: number): void {
-    this.tab = num;
+
+  ngOnInit(): void {
+
   }
 
-  isSelected(num: number): boolean {
-   return  this.tab === num;
+  onSubmit() {
+    console.log(this.tdForm.value);
   }
+
 }

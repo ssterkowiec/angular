@@ -1,15 +1,11 @@
-<!--<app-my-component *ngFor="let movie of topMovies; let i = index"[director]="movie.director">-->
-<!--  {{i+1}}.{{movie.title}}-->
-<!--</app-my-component>-->
-
-<div>
-  <app-tab-component [active]="isSelected(1)" (click)="setTab(1)">Tab1</app-tab-component>
-  <app-tab-component [active]="isSelected(2)" (click)="setTab(2)">Tab2</app-tab-component>
-  <app-tab-component [active]="isSelected(3)" (click)="setTab(3)">Tab3</app-tab-component>
-</div>
-<div [ngSwitch]="tab">
-  <app-tab-component *ngSwitchCase="1">Tab content1</app-tab-component>
-  <app-tab-component *ngSwitchCase="2">Tab content2</app-tab-component>
-  <app-tab-component *ngSwitchCase="3">Tab content3</app-tab-component>
-  <app-tab-component *ngSwitchDefault>Tab content default</app-tab-component>
-</div>
+<form #tdForm="ngForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+  <label>username:<input name="username" ngModel></label>
+  <label>lastname:<input name="lastnamename" ngModel></label>
+  </fieldset>
+  <fieldset>
+  <label>age:<input name="age" ngModel></label>
+  <label>country:<input name="country" ngModel></label>
+  </fieldset>
+  <button type="submit">Wyślij</button>
+</form>
