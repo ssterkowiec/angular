@@ -1,8 +1,8 @@
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit">
-  <label><input type="text" id="id" formControlName="id"></label>
-  <label><input type="text" id="userId" formControlName="userId"></label>
-  <label><input type="text" id="title" formControlName="title"></label>
-  <label><input type="text" id="body" formControlName="body"></label>
-  <button type="button" (click)="loadValues()">load</button>
-  <button type="submit">Wyślij</button><label></label>
-</form>
+<nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/news/post-123">Post</a>
+  <a routerLink="/">Main page</a>
+  <a routerLink="/takiej-sciezki-nie-ma">Brak Strony</a>
+</nav>
+<router-outlet></router-outlet>
